@@ -31,6 +31,8 @@ class PieButton extends StatefulWidget {
   /// Display angle of the button in radians.
   final double angle;
 
+  final String text;
+
   @override
   State<PieButton> createState() => _PieButtonState();
 }
@@ -123,28 +125,16 @@ class _PieButtonState extends State<PieButton>
                         cos(widget.angle) * _theme.hoverDisplacement
                     : _theme.buttonSize / 2,
                 child: Container(
-                  height: _theme.buttonSize,
-                  width: _theme.buttonSize,
                   decoration: (widget.hovered
                           ? _buttonThemeHovered.decoration
                           : _buttonTheme.decoration) ??
                       BoxDecoration(
-                        shape: BoxShape.circle,
                         color: widget.hovered
                             ? _buttonThemeHovered.backgroundColor
                             : _buttonTheme.backgroundColor,
                       ),
                   child: Center(
-                    child: IconTheme(
-                      data: IconThemeData(
-                        color: widget.hovered
-                            ? _buttonThemeHovered.iconColor
-                            : _buttonTheme.iconColor,
-                        size: _theme.iconSize,
-                      ),
-                      child: _action.builder?.call(widget.hovered) ??
-                          _action.child!,
-                    ),
+                    child: Text(text)
                   ),
                 ),
               ),
