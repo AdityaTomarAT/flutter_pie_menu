@@ -123,9 +123,7 @@ class _PieButtonState extends State<PieButton>
                         cos(widget.angle) * _theme.hoverDisplacement
                     : _theme.buttonSize / 2,
                 child: Container(
-                  decoration: (widget.hovered
-                          ? _buttonThemeHovered.decoration
-                          : _buttonTheme.decoration) ??
+                  decoration:
                       BoxDecoration(
                         color: widget.hovered
                             ? _buttonThemeHovered.backgroundColor
